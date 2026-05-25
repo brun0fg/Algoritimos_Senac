@@ -1,0 +1,54 @@
+https://github.com/brun0fg/Algoritimos_Senac/blob/main/SELECTIONSORT_MELHORADO.ALG
+
+
+Algoritmo "SelectionSort_Melhorado"
+
+Var
+vet: vetor[1..100] de inteiro
+n, i, j, posMenor, temp: inteiro
+// remoção da variável "menor" pode comparar direto com vet[posMenor]
+
+Inicio
+
+escreval("SELECTION SORT")
+escreval("Digite a quantidade de números (Máx 100)")
+leia(n)
+
+// leitura do vetor
+para i de 1 ate n faca
+   escreval("Digite o valor da posição ", i, ": ")
+   leia(vet[i])
+fimpara
+
+// algoritmo de selection sort melhorado
+para i de 1 ate n-1 faca
+
+   posMenor <- i
+   // Agora vai inciar assumindo que o menor é o próprio elemento atual
+
+   para j de i+1 ate n faca
+      se vet[j] < vet[posMenor] entao
+         posMenor <- j
+         // Atualiza apenas a POSIÇÃO do menor
+      fimse
+   fimpara
+
+   //evitando troca desnecessária
+   se posMenor <> i entao
+      // Só vai fazer esse teste se realmente encontrou um menor diferente
+
+      temp <- vet[i]
+      vet[i] <- vet[posMenor]
+      vet[posMenor] <- temp
+
+   fimse
+
+fimpara
+
+// para exibir vetor ordenado
+escreval("Vetor ordenado: ")
+para i de 1 ate n faca
+   escreval(vet[i], " ")
+fimpara
+
+Fimalgoritmo
